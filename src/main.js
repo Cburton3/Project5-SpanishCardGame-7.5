@@ -32,7 +32,7 @@ const showCard = () => {
 const newCard = document.getElementById("hitMe");
 newCard.addEventListener("click", showCard);
 
-const countNumber = (cardNumber) => { //this was just the place holder cardNumber its only a var when the fx is called NOT int eh declaration
+const countNumber = (cardNumber) => { //this was just the place holder cardNumber its only a var when the fx is called NOT in the declaration
   if (cardNumber === 1) {
     currentScore++;
     return changeCard(card1); //this didnt work as when you 'return' it leaves this section of the function
@@ -105,4 +105,4 @@ const cardSoto = document.getElementById("Sota de copas");
 const cardCaballo = document.getElementById("Caballo de copas");
 const cardRey = document.getElementById("Rey de copas");
 
-cardBack.addEventListener("click", () => changeCard());
+cardBack.addEventListener("click", () => changeCard(card));
