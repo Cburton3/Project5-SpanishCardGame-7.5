@@ -5,11 +5,34 @@
   background-color: brown;
 }
 
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .cardBack {
-  margin: auto;
-  width: 200px;
+  display: flex;
   margin-top: 100px;
-  background-color: brown;
+}
+
+
+
+#hitMe {
+  width: 100px;
+  background-color: aliceblue;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#hitMe:hover {
+  transform: scale(0.9);
+}
+
+#score {
+  font-size: large;
+  font-weight: bold;
 }
 
 .cards-container {

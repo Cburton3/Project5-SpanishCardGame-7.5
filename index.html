@@ -8,15 +8,21 @@
     <title>Vite App</title>
   </head>
   <body>
-    <!-- <main> -->
-      <div class="cardBack">
-        <img
-          id="startCard"
-          src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg"
-          alt="uno de copas"
-          class="cartas"
-        />
-      </div>
+    <main>
+      <section>
+        <div class="cardBack">
+          <img
+            id="startCard"
+            src="https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg"
+            alt="uno de copas"
+            class="cartas"
+          />
+        </div>
+
+        <button type="number" id="hitMe">Hit me</button>
+        <div id="score"></div>
+      </section>
+
       <div class="cards-container">
         <img
           id="1 de copas"
@@ -85,9 +91,7 @@
           class="cartas"
         />
       </div>
-      <button id="hitMe"></button>
-      <div id="score"></div>
-    <!-- </main> -->
+    </main>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

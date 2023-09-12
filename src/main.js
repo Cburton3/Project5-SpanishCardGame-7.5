@@ -16,7 +16,7 @@ const gameOver = () => {
 
 document.addEventListener("DOMContentLoaded", showScore);
 
-const showCard = () => {
+const createRandomNumber = () => {
   let randomNumber = () => Math.floor(Math.random() * 11);
   if (randomNumber > 7) {
     return randomNumber + 2;//use return after if
@@ -26,11 +26,11 @@ const showCard = () => {
   }
 
 };
-  const randomCardNumber = randomNumber();
+  const randomCardNumber = createRandomNumber();
 
 
 const newCard = document.getElementById("hitMe");
-newCard.addEventListener("click", showCard);
+newCard.addEventListener("click", createRandomNumber());
 
 const countNumber = (cardNumber) => { //this was just the place holder cardNumber its only a var when the fx is called NOT in the declaration
   if (cardNumber === 1) {
@@ -88,8 +88,8 @@ countNumber(randomCardNumber);
 
 function changeCard(card) {
   const cardBack = document.getElementById("startCard");
-  const cards = document.getElementById(card); //need to link this part with the random number
-
+  // const cards = document.getElementById(card); //need to link this part with the random number
+  //I want to change this so that each card selected appears next to original  card
   cardBack.src = card.scr;
   cardBack.alt = card.alt;
 }
