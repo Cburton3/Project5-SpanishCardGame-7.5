@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: brown;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#cardPack {
+  display: flex;
+  margin-top: 100px;
+}
+
+
+
+#hitMe {
+  width: 100px;
+  background-color: aliceblue;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#hitMe:hover {
+  transform: scale(0.9);
+}
+
+#score {
+  font-size: large;
+  font-weight: bold;
+}
+
+.cards-container {
+  display: none;
+}
