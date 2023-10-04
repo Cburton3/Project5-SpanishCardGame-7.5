@@ -3,8 +3,6 @@
 //make sep fx
 //if global no need to add param
 
-// currentScore = currentScore + 0.5
-//if directly after arrow its the same at returnign its an implict tretuyrn
 
 let currentScore = 0;
 // single responsibilty principle - 1 function 1 task
@@ -19,7 +17,7 @@ const showScore = () => {
   document.getElementById("score").innerHTML = `Your score is ${currentScore}`;
 };
 
-// the pack of cards
+// GameOver
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //change to random number 1-10
 
 const isGameOver = () => {
@@ -35,63 +33,64 @@ const gameOver = () => {
   document.getElementById("stick").disabled = true;
 };
 
-const reset = document.getElementById("reset");
+//reset button
 
-reset.onclick = () => {
+const revertCard = () => {
+  const cardPack = document.getElementById("cardPack");
+  const cardBack = document.getElementById("startCard");
+  cardPack.removeChild(cardPack.firstChild);
+  cardPack.appendChild(cardBack);
+};
+
+const resetScore = () => {
   currentScore = 0;
   document.getElementById("score").innerHTML = `Your score is ${currentScore}`;
+};
+
+const resetButtons = () => {
   document.getElementById("hitMe").disabled = false;
   document.getElementById("stick").disabled = false;
-
-  const cardPack = document.getElementById("cardPack");
-
-  // if (cardPack.firstChild) {
-    cardPack.removeChild(cardPack.firstChild);
-  // };
-
-  // Append the cardBack element
-  // const cardBack = document.getElementById("startCard");
-  // cardPack.appendChild(cardBack);
-
-const newCardBack = document.createElement("img");
-newCardBack.src = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";  
-newCardBack.alt = "card-back";
-newCardBack.className = 'cartas';
-if (cardPack.childNodes.length <= 0)
-cardPack.appendChild(newCardBack);
 };
+
+const handleReset = () => {
+  revertCard();
+  resetScore();
+  resetButtons();
+};
+
+const reset = document.getElementById("reset");
+reset.addEventListener("click", handleReset);
+
+// if (cardPack.firstChild) {
+// };
+
+// Append the cardBack element
+// const cardBack = document.getElementById("startCard");
+// cardPack.appendChild(cardBack);
+
+// const newCardBack = document.createElement("img");
+// newCardBack.src = "https://raw.githubusercontent.com/Lemoncode/fotos-ejemplos/main/cartas/back.jpg";
+// newCardBack.alt = "card-back";
+// newCardBack.className = 'cartas';
+// if (cardPack.childNodes.length <= 1)
+// cardPack.appendChild(newCardBack);
+// };
 
 //once reset button has been pressed twice the hitme no longer works
 
-
-
-
-
-
-
-
-
-
-  
-  // const childNode = cardPack.childNodes[i];
-  // const cardPack = document.getElementById("cardPack");
-  // cardPack.removeChild(childNode);
-  // const cardBack = document.getElementById("startCard");
-  // cardPack.appendChild(cardBack);
+// const childNode = cardPack.childNodes[i];
+// const cardPack = document.getElementById("cardPack");
+// cardPack.removeChild(childNode);
+// const cardBack = document.getElementById("startCard");
+// cardPack.appendChild(cardBack);
 // };
 
-
- 
- 
- 
- 
-  // if (cardPack && cardPack.childNodes.length > 1) {
-  //   for (let i = cardPack.childNodes.length - 1; i > 0; i--) {
-  //     const childNode = cardPack.childNodes[i];
-  //     cardPack.removeChild(childNode);
-  //   }// change this to sub current card with defaul one and voila!
-  // }
-
+// if (cardPack && cardPack.childNodes.length > 1) {
+//   for (let i = cardPack.childNodes.length - 1; i > 0; i--) {
+//     const childNode = cardPack.childNodes[i];
+//     cardPack.removeChild(childNode);
+//   }// change this to sub current card with defaul one and voila!
+// }
 
 // }
 
@@ -109,10 +108,7 @@ const hitMe = () => {
   countNumber(cardDrawn);
 };
 
-// calculateScore(drawCard);
-
 document.addEventListener("DOMContentLoaded", showScore);
-//chage this to a switch case
 
 const countNumber = (cardNumber) => {
   switch (cardNumber) {
@@ -148,13 +144,6 @@ const countNumber = (cardNumber) => {
       break;
   }
 };
-
-// countNumber(cardDrawn);
-
-// const showCards = (card) => {
-//   const cardPack = document.getElementById("cardPack");
-//   cardPack.appendChild(card);
-// };
 
 function showCards(card) {
   const cardBack = document.getElementById("startCard");
@@ -200,8 +189,6 @@ const messageFunction = (finalScore) => {
   return message;
 };
 
-// maybe apped message to the score div
-
 function finalScoreFunction() {
   document.getElementById(
     "score"
@@ -217,6 +204,4 @@ const stickHandle = () => {
 const stick = document.getElementById("stick");
 stick.addEventListener("click", stickHandle); //by putting the brackets here you are running the code straight away. this invokes the fx when you just want to pass it through
 
-
 //the issue is with above thecurrent score runs te fx directly so before starting the game the hitMe button is already disabled.
-
