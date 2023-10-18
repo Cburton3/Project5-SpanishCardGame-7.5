@@ -42,7 +42,8 @@ function printUrlImage(urlCard) {
 
 
 function givePointCard(card) { //makes sense
-  return card < 7 ? card : 0.5 //he cambiado 7 por 8 
+  console.log(card)
+  return card <= 7 ? card : 0.5 //he cambiado 7 por 8 
 };
 
 
@@ -114,7 +115,7 @@ const addPoints = (points) => {
 
 function hitMe() {
 
-  showScore();
+ 
   
   const randomNumber = giveRandomNumber(); //makes random number and stores it
   
@@ -125,16 +126,18 @@ function hitMe() {
 
   printUrlImage(urlCard); //prints url the card to the src
 
-  // givePointCard(randomNumber);
-
   const points = givePointCard(cardNumber); //this gives VALUE of the cards
     // según la carta, ver que puntos le corresponden según la lógica que nos diga el enunciado (si la carta es menor a 7 los puntos son el valor de la carta y si es mayor a 7 los puntos son 0.5)
 
   // sumar el punto obtenido anteriormente a los puntos totales que tengamos
   addPoints(points);
+
+  showScore();
   // comprobar si he ganado o perdido la partida.
   // gano una partida, si mis puntos totales son igual a 7.5 y he perdido, si los puntos totales son mayor a 7.5
   checkGame(currentScore);
+
+  
 };
 
 const newCard = document.getElementById("hitMe");
