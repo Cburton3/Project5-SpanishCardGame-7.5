@@ -1,7 +1,10 @@
 let currentScore = 0;
 
 const showScore = () => {
-  document.getElementById("score").innerHTML = `Your score is ${currentScore}`;
+  const scoreElement = document.getElementById("score");
+  if (scoreElement !== null && scoreElement !== undefined) {
+    scoreElement.innerHTML = `Your score is ${currentScore}`;
+  }
 };
 
 function giveUrlCard(card) {
@@ -105,7 +108,9 @@ function hitMe() {
 }
 
 const newCard = document.getElementById("hitMe");
-newCard.addEventListener("click", hitMe);
+if (newCard !== null && newCard !== undefined) {
+  newCard.addEventListener("click", hitMe);
+}
 
 //STICK BUTTON
 
@@ -119,10 +124,11 @@ function endGameMessage(finalScore) {
   } else {
     message = "Puntuacion no reconocida";
   }
-  document.getElementById(
-    "score"
-  ).innerHTML = `Your final score is ${currentScore}. ${message}`;
-}
+  const scoreElement = document.getElementById("score");
+  if (scoreElement !== null && scoreElement !== undefined) {
+    scoreElement.innerHTML = `Your final score is ${currentScore}. ${message}`;
+  }
+};
 
 const stickHandle = () => {
   endGameMessage(currentScore);
@@ -130,13 +136,18 @@ const stickHandle = () => {
 };
 
 const stick = document.getElementById("stick");
+if (stick !== null && stick !== undefined) {
 stick.addEventListener("click", stickHandle);
+};
 
 //RESET BUTTON
 
 const resetScore = () => {
   currentScore = 0;
-  document.getElementById("score").innerHTML = `Your score is ${currentScore}`;
+  const scoreElement = document.getElementById("score");
+  if (scoreElement !== null && scoreElement !== undefined) {
+  scoreElement.innerHTML = `Your score is ${currentScore}`;
+  }
 };
 
 const resetButtons = () => {
@@ -156,4 +167,6 @@ const handleReset = () => {
 };
 
 const reset = document.getElementById("reset");
+if (reset !== null && reset !== undefined) {
 reset.addEventListener("click", handleReset);
+};
