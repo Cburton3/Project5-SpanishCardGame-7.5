@@ -57,8 +57,14 @@ function checkGame(finalScore) {
 }
 
 const disableButtons = () => {
-  document.getElementById("hitMe").disabled = true;
-  document.getElementById("stick").disabled = true;
+  const newCard = document.getElementById("hitMe");
+  if (newCard !== null && newCard !== undefined) {
+    document.getElementById("hitMe").disabled = true;
+  }
+  const stick = document.getElementById("stick");
+  if (stick !== null && stick !== undefined) {
+    document.getElementById("stick").disabled = true;
+  }
 };
 
 function winGame() {
@@ -124,6 +130,9 @@ function endGameMessage(finalScore) {
   } else {
     message = "Puntuacion no reconocida";
   }
+}
+
+function finalScoreMessage() {
   const scoreElement = document.getElementById("score");
   if (scoreElement !== null && scoreElement !== undefined) {
     scoreElement.innerHTML = `Your final score is ${currentScore}. ${message}`;
@@ -132,6 +141,7 @@ function endGameMessage(finalScore) {
 
 const stickHandle = () => {
   endGameMessage(currentScore);
+  finalScoreMessage();
   disableButtons();
 };
 
@@ -175,4 +185,4 @@ const handleReset = () => {
 const reset = document.getElementById("reset");
 if (reset !== null && reset !== undefined) {
   reset.addEventListener("click", handleReset);
-}
+};
