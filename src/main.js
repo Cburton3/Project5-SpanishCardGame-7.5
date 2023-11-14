@@ -128,7 +128,7 @@ function endGameMessage(finalScore) {
   if (scoreElement !== null && scoreElement !== undefined) {
     scoreElement.innerHTML = `Your final score is ${currentScore}. ${message}`;
   }
-};
+}
 
 const stickHandle = () => {
   endGameMessage(currentScore);
@@ -137,8 +137,8 @@ const stickHandle = () => {
 
 const stick = document.getElementById("stick");
 if (stick !== null && stick !== undefined) {
-stick.addEventListener("click", stickHandle);
-};
+  stick.addEventListener("click", stickHandle);
+}
 
 //RESET BUTTON
 
@@ -146,13 +146,19 @@ const resetScore = () => {
   currentScore = 0;
   const scoreElement = document.getElementById("score");
   if (scoreElement !== null && scoreElement !== undefined) {
-  scoreElement.innerHTML = `Your score is ${currentScore}`;
+    scoreElement.innerHTML = `Your score is ${currentScore}`;
   }
 };
 
 const resetButtons = () => {
-  document.getElementById("hitMe").disabled = false;
-  document.getElementById("stick").disabled = false;
+  const newCard = document.getElementById("hitMe");
+  if (newCard !== null && newCard !== undefined) {
+    document.getElementById("hitMe").disabled = false;
+  }
+  const stick = document.getElementById("stick");
+  if (stick !== null && stick !== undefined) {
+    document.getElementById("stick").disabled = false;
+  }
 };
 
 const resetCard = () => {
@@ -168,5 +174,5 @@ const handleReset = () => {
 
 const reset = document.getElementById("reset");
 if (reset !== null && reset !== undefined) {
-reset.addEventListener("click", handleReset);
-};
+  reset.addEventListener("click", handleReset);
+}
