@@ -16,24 +16,23 @@ const gameOver = () => {
 
 document.addEventListener("DOMContentLoaded", showScore);
 
-const createRandomNumber = () => {
-  let randomNumber = () => Math.floor(Math.random() * 11);
-  if (randomNumber > 7) {
-    return randomNumber + 2;//use return after if
-  }
-  if (!randomNumber >= 12) {
-    return randomNumber;
-  }
+let randomNumber = () => Math.floor(Math.random() * 11);
+const createRandomNumber = (randomNumber) => {
+  if (randomNumber() > 7) {
+    return randomNumber() + 2;//use return after if
+  } 
+  return randomNumber()
+
+  // randomNumber();
 
 };
   const randomCardNumber = createRandomNumber();
 
 
-const newCard = document.getElementById("hitMe");
-newCard.addEventListener("click", createRandomNumber());
+
 
 const countNumber = (cardNumber) => { //this was just the place holder cardNumber its only a var when the fx is called NOT in the declaration
-  if (cardNumber === 1) {
+  if (cardNumber === 1) { //cambiar a un case fx
     currentScore++;
     return changeCard(card1); //this didnt work as when you 'return' it leaves this section of the function
   }
@@ -84,7 +83,7 @@ const countNumber = (cardNumber) => { //this was just the place holder cardNumbe
   }
 };
 
-countNumber(randomCardNumber);
+// countNumber(randomCardNumber);
 
 function changeCard(card) {
   const cardBack = document.getElementById("startCard");
@@ -105,4 +104,18 @@ const cardSoto = document.getElementById("Sota de copas");
 const cardCaballo = document.getElementById("Caballo de copas");
 const cardRey = document.getElementById("Rey de copas");
 
-cardBack.addEventListener("click", () => changeCard(card));
+// cardBack.addEventListener("click", () => changeCard(card));
+
+
+
+
+
+const handleCompruebaClick = () => {
+  createRandomNumber();
+  showScore();
+  countNumber(randomCardNumber);
+  changeCard();
+}
+  const newCard = document.getElementById("hitMe");
+  newCard.addEventListener("click", handleCompruebaClick);
+
