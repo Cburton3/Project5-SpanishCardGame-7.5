@@ -12,25 +12,39 @@ section {
   align-items: center;
 }
 
-.cardBack {
+#cardPack {
   display: flex;
   margin-top: 100px;
 }
 
+.cards {
+  margin: 5px;
+  border-radius: 15px;
+  width: 220px;
+}
 
-#hitMe {
+.buttons {
+  /* width: 200px; */
+  display: flex;
+  justify-content: space-around;
+}
+
+button {
   width: 100px;
   background-color: aliceblue;
   cursor: pointer;
   margin: 10px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
 }
 
-#hitMe:hover {
+button:hover {
   transform: scale(0.9);
 }
 
 #score {
-  font-size: large;
+  font-size: 2rem;
   font-weight: bold;
 }
 
